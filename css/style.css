@@ -1,1 +1,43 @@
-/* Generics */
+body {
+  background-image: url("../img/wall.png");
+}
+
+#polaroid-container {
+  background-image: url("../img/cork.png");
+}
+.container {
+  max-width: 100%;
+}
+.title {
+  text-align: center;
+  font-size: 4rem;
+  font-family: "Edu TAS Beginner";
+  font-weight: bold;
+}
+
+.polaroid {
+  width: 220px;
+  background-color: white;
+  padding: 10px 10px 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  position: relative;
+  text-align: center;
+  font-style: italic;
+}
+
+.polaroid::before {
+  content: "";
+  width: 35px;
+  height: 35px;
+  background-image: url(../img/pin.svg);
+  position: absolute;
+  top: -10px;
+  left: 95px;
+}
+
+.color-box {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+}
