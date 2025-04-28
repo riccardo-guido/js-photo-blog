@@ -1,4 +1,6 @@
 const postsContainer = document.getElementById("posts-container");
+const layoverEl = document.querySelector(".layover");
+const closeButtonEl = document.getElementById("close-button");
 
 axios.get("https://lanciweb.github.io/demo/api/pictures/").then((response) => {
   const posts = response.data;
@@ -8,11 +10,25 @@ axios.get("https://lanciweb.github.io/demo/api/pictures/").then((response) => {
     cardsHtml += generatePostCard(post);
   });
   postsContainer.innerHTML += cardsHtml;
+
+  const postsNodes = document.querySelectorAll(".card");
+
+  postsNodes.forEach((postNode) => {
+    postNode.addEventListener("click", () => {
+      const img = postNode.querySelector("img");
+      console.log(img);
+
+      layoverEl.classList.add("visible");
+    });
+    closeButtonEl.addEventListener("click", () => {
+      layoverEl.classList.remove("visible");
+    });
+  });
 });
 
 const generatePostCard = (post) => {
   const cardHtml = `
-        <div class="card">
+        <div class="card" id="post-card-${post.id}">
             <div class="card-media">
               <img src="${post.url}" alt="${post.title}" />
             </div>
