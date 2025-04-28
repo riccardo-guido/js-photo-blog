@@ -1,4 +1,5 @@
 const postsContainer = document.getElementById("posts-container");
+const layoverContainer = document.getElementById("layover-container");
 const layoverEl = document.querySelector(".layover");
 const closeButtonEl = document.getElementById("close-button");
 
@@ -16,13 +17,27 @@ axios.get("https://lanciweb.github.io/demo/api/pictures/").then((response) => {
   postsNodes.forEach((postNode) => {
     postNode.addEventListener("click", () => {
       const img = postNode.querySelector("img");
-      console.log(img);
 
+      // Crea una nuova immagine per l'overlay
+      const overlayImg = document.createElement("img");
+      overlayImg.src = img.src;
+      overlayImg.alt = img.alt;
+
+      // Svuota l'overlay prima di aggiungere una nuova immagine
+      layoverContainer.innerHTML = "";
+
+      // Aggiungi il bottone di chiusura
+      layoverContainer.appendChild(closeButtonEl);
+
+      // Aggiungi l'immagine
+      layoverContainer.appendChild(overlayImg);
+
+      // Mostra l'overlay
       layoverEl.classList.add("visible");
     });
-    closeButtonEl.addEventListener("click", () => {
-      layoverEl.classList.remove("visible");
-    });
+  });
+  closeButtonEl.addEventListener("click", () => {
+    layoverEl.classList.remove("visible");
   });
 });
 
