@@ -1,43 +1,44 @@
-body {
-  background-image: url("../img/wall.png");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-#polaroid-container {
-  background-image: url("../img/cork.png");
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-.container {
-  max-width: 100%;
-}
-.title {
+
+header {
+  background-image: url("../img/wall.png");
   text-align: center;
   font-size: 4rem;
   font-family: "Edu TAS Beginner";
   font-weight: bold;
 }
+main {
+  background-image: url("../img/cork.png");
+  flex-grow: 1;
+}
 
-.polaroid {
-  width: 220px;
+.container {
+  max-width: 100%;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  padding: 1rem;
   background-color: white;
-  padding: 10px 10px 20px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-  position: relative;
-  text-align: center;
-  font-style: italic;
+  width: 350px;
 }
-
-.polaroid::before {
-  content: "";
-  width: 35px;
-  height: 35px;
-  background-image: url(../img/pin.svg);
-  position: absolute;
-  top: -10px;
-  left: 95px;
-}
-
-.color-box {
-  width: 100%;
-  height: 200px;
-  margin-bottom: 10px;
+img {
+  display: block;
+  max-width: 100%;
 }
